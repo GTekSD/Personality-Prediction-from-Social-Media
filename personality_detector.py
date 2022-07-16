@@ -86,7 +86,7 @@ root.configure(background="#7D0552")
 
 def Train():
     
-    result = pd.read_csv(r"C:/Users/GTekSD/Desktop/personality_Prediction/new.csv",encoding = 'unicode_escape')
+    result = pd.read_csv(r"C:/Users/GTekSD/Desktop/personality_Prediction/new_dataset.csv",encoding = 'unicode_escape')
 
     result.head()
         
