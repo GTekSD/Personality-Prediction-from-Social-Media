@@ -2,7 +2,7 @@
 
 # -*- coding: utf-8 -*-ss
 """
-Created on Tue May 5 11:11:41 2021
+Created on Sat Jun 26 14:24:41 2021
 
 @author: Сухас Дхолз
 """
@@ -43,7 +43,6 @@ cursor = db.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS registration"
                "(Fullname TEXT, address TEXT, username TEXT, Email TEXT, Phoneno TEXT,Gender TEXT,age TEXT , password TEXT)")
 db.commit()
-
 
 
 def password_check(passwd): 
@@ -101,6 +100,7 @@ def insert():
     # to check mail
     #regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
     regex='^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+	
     if (re.search(regex, email)):
         a = True
     else:
@@ -108,26 +108,37 @@ def insert():
     # validation
     if (fname.isdigit() or (fname == "")):
         ms.showinfo("Message", "please enter valid name")
+	
     elif (addr == ""):
         ms.showinfo("Message", "Please Enter Address")
+	
     elif (email == "") or (a == False):
         ms.showinfo("Message", "Please Enter valid email")
+	
     elif((len(str(mobile)))<10 or len(str((mobile)))>10):
         ms.showinfo("Message", "Please Enter 10 digit mobile number")
+	
     elif ((time > 100) or (time == 0)):
         ms.showinfo("Message", "Please Enter valid age")
+	
     elif (c.fetchall()):
         ms.showerror('Error!', 'Username Taken Try a Diffrent One.')
+	
     elif (pwd == ""):
         ms.showinfo("Message", "Please Enter valid password")
+	
     elif (var == False):
         ms.showinfo("Message", "Please Enter gender")
+	
     elif(pwd=="")or(password_check(pwd))!=True:
         ms.showinfo("Message", "password must contain atleast 1 Uppercase letter,1 symbol,1 number")
+	
     elif (pwd != cnpwd):
         ms.showinfo("Message", "Password Confirm password must be same")
+	
     else:
         conn = sqlite3.connect('evaluation.db')
+	
         with conn:
             cursor = conn.cursor()
             cursor.execute(
@@ -184,7 +195,6 @@ l3.place(x=30, y=80)
 t2 = tk.Entry(frame, textvar=address, width=20, font=('', 15),bd=5)
 t2.place(x=230, y=80)
 # that is for label 3(address)
-
 
 # that is for label 4(blood group)
 
