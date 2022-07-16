@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jan 28 20:25:28 2022
+Created on Sat Jul 17 20:25:28 2022
 
 @author: Сухас Дхолз
 """
@@ -13,9 +13,11 @@ import re
 import seaborn as sns
 import matplotlib.pyplot as plt
 import nltk
+
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 from nltk.corpus import stopwords 
 from nltk import word_tokenize
+
 nltk.download('stopwords')
 nltk.download('wordnet')
 
@@ -104,11 +106,11 @@ def translate_back(personality):
         s += b_Pers_list[i][l]
     return s
 
+
 # Check ...
 d = data.head(4)
 list_personality_bin = np.array([translate_personality(p) for p in d.type])
 print("Binarize MBTI list: \n%s" % list_personality_bin)
-
 
 
 
@@ -173,12 +175,12 @@ from sklearn.manifold import TSNE
 
 # Posts to a matrix of token counts
 cntizer = CountVectorizer(analyzer="word", 
-                             max_features=1500, 
-                             tokenizer=None,    
-                             preprocessor=None, 
-                             stop_words=None,  
-                             max_df=0.7,
-                             min_df=0.1) 
+                          max_features=1500, 
+                          tokenizer=None,    
+                          preprocessor=None, 
+                          stop_words=None,  
+                          max_df=0.7,
+                          min_df=0.1) 
 
 # Learn the vocabulary dictionary and return term-document matrix
 print("CountVectorizer...")
@@ -204,6 +206,7 @@ for l in range(len(type_indicators)):
     
 print("MBTI 1st row: %s" % translate_back(list_personality[0,:]))
 print("Y: Binarized MBTI 1st row: %s" % list_personality[0,:]) 
+
 from numpy import loadtxt
 from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
