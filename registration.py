@@ -38,7 +38,7 @@ value = random.randint(1, 1000)
 print(value)
 
 # database code
-db = sqlite3.connect('evaluation.db')
+db = sqlite3.connect('userdata.db')
 cursor = db.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS registration"
                "(Fullname TEXT, address TEXT, username TEXT, Email TEXT, Phoneno TEXT,Gender TEXT,age TEXT , password TEXT)")
@@ -87,7 +87,7 @@ def insert():
     pwd = password.get()
     cnpwd = password1.get()
 
-    with sqlite3.connect('evaluation.db') as db:
+    with sqlite3.connect('userdata.db') as db:
         c = db.cursor()
 
     # Find Existing username if any take proper action
@@ -137,7 +137,7 @@ def insert():
         ms.showinfo("Message", "Password Confirm password must be same")
 	
     else:
-        conn = sqlite3.connect('evaluation.db')
+        conn = sqlite3.connect('userdata.db')
 	
         with conn:
             cursor = conn.cursor()
