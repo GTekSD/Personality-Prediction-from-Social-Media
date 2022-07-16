@@ -2,7 +2,7 @@
 
 # -*- coding: utf-8 -*-ss
 """
-Created on Tue May 5 11:11:41 2021
+Created on Sat May 8 11:11:41 2021
 
 @author: Сухас Дхолз
 """
@@ -42,6 +42,7 @@ from tkinter import messagebox as ms
 def Login():
     from subprocess import call
     call(["python","login1.py"])
+    
 def Register():
     from subprocess import call
     call(["python","registration.py"])
