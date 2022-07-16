@@ -31,10 +31,10 @@ class login_system:
         self.n_username = StringVar()
         self.n_password = StringVar()
         
-        self.bg1_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/personality_Prediction/L.jpg")
-        self.bg_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/personality_Prediction/L.jpg")
-        self.user_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/personality_Prediction/u1.png")
-        self.pass_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/personality_Prediction/L.jpg")
+        self.bg1_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/Personality_Prediction/Background_and_Images/L.jpg")
+        self.bg_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/Personality_Prediction/Background_and_Images/L.jpg")
+        self.user_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/Personality_Prediction/Background_and_Images/u1.png")
+        self.pass_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/Personality_Prediction/Background_and_Images/L.jpg")
         
         bg_lbl=Label(self.root,image=self.bg1_icon).pack()
         
