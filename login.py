@@ -94,7 +94,7 @@ class login_system:
 
     def new_user(self):
         # Establish Connection
-        with sqlite3.connect('evaluation.db') as db:
+        with sqlite3.connect('userdata.db') as db:
             c = db.cursor()
 
         # Find Existing username if any take proper action
