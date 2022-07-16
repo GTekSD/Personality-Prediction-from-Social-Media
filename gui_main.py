@@ -20,7 +20,7 @@ root=tk.Tk()
 root.title("Personality Prediction")
 w,h = root.winfo_screenwidth(),root.winfo_screenheight()
 
-bg = Image.open("C:/Users/GTekSD/Desktop/personality_Prediction/bg1.jpg")
+bg = Image.open("C:/Users/GTekSD/Desktop/Personality_Prediction/Background_and_Images/bg1.jpg")
 bg.resize((1800,800),Image.ANTIALIAS)
 print(w,h)
 bg_img = ImageTk.PhotoImage(bg)
