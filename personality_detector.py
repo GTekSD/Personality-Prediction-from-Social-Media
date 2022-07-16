@@ -34,7 +34,7 @@ root.title("Personality Prediction using Twitter")
 w, h = root.winfo_screenwidth(), root.winfo_screenheight()
 root.geometry("%dx%d+0+0" % (w, h))
 
-# image2 =Image.open(r'C:/Users/GTekSD/Desktop/personality_Prediction/BG.jpg')
+# image2 =Image.open(r'C:/Users/GTekSD/Desktop/Personality_Prediction/Background_and_Images/BG.jpg')
 
 # image2 =image2.resize((w,h), Image.ANTIALIAS)
 
