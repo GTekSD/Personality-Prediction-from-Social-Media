@@ -61,11 +61,11 @@ class login_system:
     def login(self):
         # Establish Connection
 
-        with sqlite3.connect('evaluation.db') as db:
+        with sqlite3.connect('userdata.db') as db:
             c = db.cursor()
 
         # Find user If there is any take proper action
-        db = sqlite3.connect('evaluation.db')
+        db = sqlite3.connect('userdata.db')
         cursor = db.cursor()
         cursor.execute("CREATE TABLE IF NOT EXISTS registration"
                        "(Fullname TEXT, address TEXT, username TEXT, Email TEXT, Phoneno TEXT,Gender TEXT,age TEXT , password TEXT)")
