@@ -2,11 +2,10 @@
 
 # -*- coding: utf-8 -*-
 """
-Created on Fri Apr 2 01:01:37 2021
+Created on Sun Jun 6 01:01:37 2021
 
 @author: Сухас Дхолз
 """
-
 
 from tkinter import *
 from tkinter import messagebox as ms
@@ -33,7 +32,6 @@ class login_system:
         self.n_password = StringVar()
         
         self.bg1_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/personality_Prediction/L.jpg")
-
         self.bg_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/personality_Prediction/L.jpg")
         self.user_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/personality_Prediction/u1.png")
         self.pass_icon=ImageTk.PhotoImage(file=r"C:/Users/GTekSD/Desktop/personality_Prediction/L.jpg")
