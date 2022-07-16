@@ -22,7 +22,7 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 
 # read data
-data = pd.read_csv('C:/Users/GTekSD/Desktop/personality_prediction/mbti_1.csv') 
+data = pd.read_csv('C:/Users/GTekSD/Desktop/personality_prediction/mdataset.csv') 
 data.head(10)
 
 [p.split('|||') for p in data.head(2).posts.values]
