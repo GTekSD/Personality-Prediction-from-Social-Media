@@ -2,7 +2,7 @@
 
 # -*- coding: utf-8 -*-
 """
-Created on Wed june 5 04:44:41 2021
+Created on Sun Sep 5 03:30:41 2021
 
 @author: Сухас Дхолз
 """
@@ -33,7 +33,9 @@ root = tk.Tk()
 root.title("Personality Prediction using Twitter")
 w, h = root.winfo_screenwidth(), root.winfo_screenheight()
 root.geometry("%dx%d+0+0" % (w, h))
-# image2 =Image.open(r'E:/personality_Prediction/BG.jpg')
+
+# image2 =Image.open(r'C:/Users/GTekSD/Desktop/personality_Prediction/BG.jpg')
+
 # image2 =image2.resize((w,h), Image.ANTIALIAS)
 
 # background_image=ImageTk.PhotoImage(image2)
@@ -73,12 +75,8 @@ def move():
 # calling the function
 move()
 
-
-
 w = tk.Label(root, text="Personality Prediction",width=40,background="#7D0552",height=2,font=("Times new roman",28,"bold"))
 w.place(x=500,y=10)
-
-
 
 w,h = root.winfo_screenwidth(),root.winfo_screenheight()
 root.geometry("%dx%d+0+0"%(w,h))
@@ -101,7 +99,7 @@ def Train():
     
     os = result.posts.apply(pos)
     os1 = pd.DataFrame(os)
-    #
+    
     os1.head()
     
     os1['pos'] = os1['posts'].map(lambda x: " ".join(["/".join(x) for x in x]))
@@ -110,7 +108,7 @@ def Train():
     result.head()
     result['pos']
     review_train, review_test, label_train, label_test = train_test_split(result['pos'], result['type'],
-                                                                              test_size=0.2, random_state=13)
+    test_size=0.2, random_state=13)
     
     tf_vect = TfidfVectorizer(lowercase=True, use_idf=True, smooth_idf=True, sublinear_tf=False)
     
@@ -128,7 +126,6 @@ def Train():
     
     
     svc_param_selection(X_train_tf, label_train, 2)
-    #
     
     clf = svm.SVC(C=10, gamma=0.001, kernel='linear')   
     clf.fit(X_train_tf, label_train)
@@ -136,6 +133,7 @@ def Train():
     
     with open('vectorizer.pickle', 'wb') as fin:
         pickle.dump(tf_vect, fin)
+	
     with open('mlmodel.pickle', 'wb') as f:
         pickle.dump(clf, f)
     
@@ -148,11 +146,10 @@ def Train():
     pred = clf.predict(X_test_tf)
     
     print(metrics.accuracy_score(label_test, pred))
-    
+	
     print(confusion_matrix(label_test, pred))
-    
-    print(classification_report(label_test, pred))
 
+    print(classification_report(label_test, pred))
        
     print("=" * 40)
     print("==========")
@@ -160,6 +157,7 @@ def Train():
     print("Accuracy : ",accuracy_score(label_test, pred)*100)
     accuracy = accuracy_score(label_test, pred)
     print("Accuracy: %.2f%%" % (accuracy * 100.0))
+
     ACC = (accuracy_score(label_test, pred) * 100)
     repo = (classification_report(label_test, pred))
     
@@ -188,51 +186,67 @@ def Test():
     X_test_tf = tf_vect.transform([Given_text])
     y_predict = predictor.predict(X_test_tf)
     print(y_predict[0])
+	
     if y_predict[0]==0:
         label4 = tk.Label(root,text ="Personality Prediction is Introvrsion,Intuition,Feeling,Judging",width=70,height=2,bg='Green',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==1:
         label4 = tk.Label(root,text ="Personality Prediction is Extroversion,Intuition,Thinking,Perceiving",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==2:
         label4 = tk.Label(root,text ="Personality Prediction is Introvrsion,Intuition,Thinking,Perceiving",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==3:
         label4 = tk.Label(root,text ="Personality Prediction is Introvrsion,Intuition,Thinking,Judging",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==4:
         label4 = tk.Label(root,text ="Personality Prediction is Extroversion,Intuition,Thinking,Judging",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==5:
         label4 = tk.Label(root,text ="Personality Prediction is Extroversion,Intuition,Feeling,Judging",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==6:
         label4 = tk.Label(root,text ="Personality Prediction is Introvrsion,Intuition,Feeling,Perceiving",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==7:
         label4 = tk.Label(root,text ="Personality Prediction is Extroversion,Intuition,Feeling,Perceiving",width=70,eight=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==8:
         label4 = tk.Label(root,text ="Personality Prediction is Extroversion,Intuition,Feeling,Perceiving",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==9:
         label4 = tk.Label(root,text ="Personality Prediction is Introvrsion,Sensing,Thinking,Perceiving",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==10:
         label4 = tk.Label(root,text ="Personality Prediction is Introvrsion,Sensing,Feeling,Judging",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==11:
         label4 = tk.Label(root,text ="Personality Prediction is Introvrsion,Sensing,Thinking,Judging",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==12:
         label4 = tk.Label(root,text ="Personality Prediction is Extroversion,Sensing,Thinking,Perceiving",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==13:
         label4 = tk.Label(root,text ="Personality Prediction is Introvrsion,Intuition,Thinking,Judging",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==14:
         label4 = tk.Label(root,text ="Personality Prediction is Introvrsion,Intuition,Thinking,Judging",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
+	
     elif y_predict[0]==15:
         label4 = tk.Label(root,text ="Personality Prediction is Introvrsion,Intuition,Thinking,Judging",width=70,height=2,bg='Red',fg='black',font=("Tempus Sanc ITC",14))
         label4.place(x=600,y=800)
