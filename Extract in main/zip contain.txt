@@ -1,0 +1,5 @@
+Zip contains:
+mbti_1.csv
+new.csv
+mlmodel.pickle
+SVM_MODEL.joblib
